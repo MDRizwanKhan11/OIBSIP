@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head><title>MyCalculator</title>
+<style>
+body{
+background-color:black;
+height:100vh;
+width:100vw;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+#calci{
+border:none;
+background-color:black;
+padding:5px;
+box-shadow: 2px 3px 5px 4px #00ffff63;
+}
+#btnb{
+color:orange;
+}
+
+#plac{
+text-align:right;
+width:375px;
+background:transparent;
+border:none;
+font-size:50px;
+color:white;
+box-shadow: 2px 3px 5px 2px #607d8b7a;
+}
+button{
+width:63px;
+margin:15px;
+padding:8px;
+border-radius:25px;
+background-color:transparent;
+color:white;
+cursor:pointer;
+font-size:24px;
+box-shadow: 2px 3px 5px 2px #607d8b7a;
+}
+#btnl{
+background-color:orange;
+}
+}
+</style>
+</head>
+<body>
+<div id="calci">
+<input type="text" id="plac" placeholder="0">
+<div class="btn">
+<div><button id="btnb">AC</button>
+<button id="btnb">DEL</button>
+<button id="btnb">%</button>
+<button id="btnb">/</button>
+</div>
+<div>
+<button>7</button>
+<button>8</button>
+<button>9</button>
+<button id="btnb">*</button>
+</div>
+<div>
+<button>4</button>
+<button>5</button>
+<button>6</button>
+<button id="btnb">-</button>
+</div>
+<div>
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button id="btnb">+</button>
+</div>
+<div>
+<button>00</button>
+<button>0</button>
+<button>.</button>
+<button id="btnl">=</button>
+</div>
+</div>
+</div>
+<script>
+let input=document.getElementById('plac');
+let buttons = document.querySelectorAll('button');
+let string="";
+let arr= Array.from(buttons);
+arr.forEach(button =>{
+	button.addEventListener('click',(e)=>{
+		if(e.target.innerHTML == '='){
+		string = eval(string);
+		input.value = string;
+		}
+		else if(e.target.innerHTML == 'AC'){
+		string="";
+		input.value=string;
+		}
+		else if(e.target.innerHTML == 'DEL'){
+		string=string.slice(0, -1);
+		input.value=string;
+		}
+		else 
+		{
+		string += e.target.innerHTML;
+		input.value = string;
+		}
+
+	})	
+	})
+</script>
+</body>
+</html>
